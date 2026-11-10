@@ -1,122 +1,144 @@
-<!DOCTYPE html>  <html lang="fr">  
-<head>  
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  
-<meta name="theme-color" content="#101827">  
-<title>RIVATO MOBILE STORE</title>  
-<style>  
-*{box-sizing:border-box;margin:0;padding:0}  
-body{font-family:Arial,sans-serif;background:#f3f5f9;color:#172033}  
-header{background:#101827;color:white;padding:25px 16px;text-align:center}  
-header h1{font-size:25px}  
-header p{margin-top:9px;color:#cbd5e1}  
-.container{max-width:1000px;margin:auto;padding:18px}  
-.hero{background:#172b46;color:white;padding:25px 18px;border-radius:15px;text-align:center;margin-bottom:20px}  
-.hero h2{margin-bottom:10px}  
-.search{width:100%;padding:14px;border:1px solid #ddd;border-radius:10px;font-size:16px;margin-bottom:18px}  
-h2.section{margin:18px 0}  
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}  
-.card{background:white;padding:18px;border-radius:13px;box-shadow:0 3px 12px #0000000d}  
-.card h3{font-size:18px;margin-bottom:10px}  
-.price{color:#128c55;font-size:21px;font-weight:bold;margin:12px 0}  
-.info{color:#64748b;font-size:14px;line-height:1.7}  
-.status{display:inline-block;background:#e9f8ef;color:#128c55;padding:5px 9px;border-radius:20px;font-size:12px;margin-top:8px}  
-.btn{display:block;text-align:center;text-decoration:none;background:#25d366;color:white;padding:12px;border-radius:8px;font-weight:bold;margin-top:14px}  
-.btn:hover{background:#128c7e}  
-.contact{background:#101827;color:white;text-align:center;padding:25px 15px;border-radius:14px;margin-top:25px}  
-.contact p{margin:12px 0}  
-footer{text-align:center;padding:22px;color:#64748b;font-size:13px}  
-</style>  
-</head>  
-<body>  <header>  
-<h1>RIVATO MOBILE STORE</h1>  
-<p>Votre boutique de téléphones au meilleur prix</p>  
-</header>  <div class="container">  <div class="hero">  
-<h2>Bienvenue chez RIVATO MOBILE STORE</h2>  
-<p>Découvrez notre catalogue de smartphones.</p>  
-<p>Qualité, confiance et satisfaction.</p>  
-</div>  <input class="search" id="search"  
-placeholder="Rechercher un téléphone..."  
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101827">
+<title>RIVATO MOBILE STORE</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f3f5f9;color:#172033}
+header{background:#101827;color:white;padding:25px 16px;text-align:center}
+header h1{font-size:25px}
+header p{margin-top:9px;color:#cbd5e1}
+.container{max-width:1000px;margin:auto;padding:18px}
+.hero{background:#172b46;color:white;padding:25px 18px;border-radius:15px;text-align:center;margin-bottom:20px}
+.hero h2{margin-bottom:10px}
+.search{width:100%;padding:14px;border:1px solid #ddd;border-radius:10px;font-size:16px;margin-bottom:18px}
+h2.section{margin:18px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}
+.card{background:white;padding:18px;border-radius:13px;box-shadow:0 3px 12px #0000000d}
+.card h3{font-size:18px;margin-bottom:10px}
+.price{color:#128c55;font-size:21px;font-weight:bold;margin:12px 0}
+.info{color:#64748b;font-size:14px;line-height:1.7}
+.status{display:inline-block;background:#e9f8ef;color:#128c55;padding:5px 9px;border-radius:20px;font-size:12px;margin-top:8px}
+.btn{display:block;text-align:center;text-decoration:none;background:#25d366;color:white;padding:12px;border-radius:8px;font-weight:bold;margin-top:14px}
+.btn:hover{background:#128c7e}
+.contact{background:#101827;color:white;text-align:center;padding:25px 15px;border-radius:14px;margin-top:25px}
+.contact p{margin:12px 0}
+footer{text-align:center;padding:22px;color:#64748b;font-size:13px}
+</style>
+</head>
+<body>
+
+<header>
+<h1>RIVATO MOBILE STORE</h1>
+<p>Votre boutique de téléphones au meilleur prix</p>
+</header>
+
+<div class="container">
+
+<div class="hero">
+<h2>Bienvenue chez RIVATO MOBILE STORE</h2>
+<p>Découvrez notre catalogue de smartphones.</p>
+<p>Qualité, confiance et satisfaction.</p>
+</div>
+
+<input class="search" id="search"
+placeholder="Rechercher un téléphone..."
 oninput="filterPhones()">
 
-<h2 class="section">Notre catalogue de téléphones</h2>  <div class="grid" id="catalogue"></div>  <div class="contact">  
-<h2>Commander chez RIVATO</h2>  
-<p>Contactez-nous directement sur WhatsApp.</p>  
-<p>WhatsApp / Wave : +225 05 65 87 58 33</p>  
-<a class="btn" href="https://wa.me/2250565875833">  
-Commander sur WhatsApp  
-</a>  
-<p>WhatsApp / Orange Money : +225 07 00 66 43 46</p>  
-<a class="btn" href="https://wa.me/2250700664346">  
-Contacter le deuxième numéro  
-</a>  
-</div>  </div>  <footer>  
-© 2026 RIVATO MOBILE STORE - Tous droits réservés.  
-</footer>  <script>  
-const phones = [  
-{name:"Honor 8 Lite",price:30000,state:"Bon état"},  
-{name:"Honor 8X",price:40000,state:"Bon état"},  
-{name:"Infinix Smart 6",price:35000,state:"Bon état"},  
-  
-{name:"Redmi A7",price:null},  
-{name:"Redmi A7 Pro",price:null},  
-{name:"Redmi 9A",price:null},  
-{name:"Redmi 15",price:null},  
-{name:"Redmi 15C",price:null},  
-{name:"Redmi 17",price:null},  
-{name:"Redmi Note 17 5G",price:null},  
-  
-{name:"Samsung Galaxy A06",price:50000,state:"Excellent état"},  
-{name:"Samsung Galaxy A07",price:null},  
-{name:"Samsung Galaxy A07s",price:null},  
-{name:"Samsung Galaxy A14",price:null},  
-{name:"Samsung Galaxy A16",price:null},  
-{name:"Samsung Galaxy A17",price:null},  
-{name:"Samsung Galaxy A37",price:null},  
-{name:"Samsung Galaxy A56",price:null},  
-  
-{name:"Tecno Pop 20",price:null}  
-];  
-  
-phones.sort((a,b)=>a.name.localeCompare(b.name,"fr"));  
-  
-function displayPhones(list){  
-const catalogue=document.getElementById("catalogue");  
-catalogue.innerHTML="";  
-  
-if(list.length===0){  
-catalogue.innerHTML="<p>Aucun téléphone trouvé.</p>";  
-return;  
-}  
-  
-list.forEach(phone=>{  
-const price=phone.price===null  
-?"Nous consulter"  
-:phone.price.toLocaleString("fr-FR")+" F CFA";  
-  
-const message=encodeURIComponent(  
-"Bonjour RIVATO MOBILE STORE, je souhaite commander : "+phone.name  
-);  
-  
-catalogue.innerHTML+=`  
-<div class="card">  
-<h3>${phone.name}</h3>  
-<p class="info">État : ${phone.state||"Nous consulter"}</p>  
-<p class="price">${price}</p>  
-<p class="info">Stockage et RAM : Nous consulter</p>  
-<span class="status">Disponible sur demande</span>  
-<a class="btn" href="https://wa.me/2250565875833?text=${message}">  
-Commander  
-</a>  
-</div>`;  
-});  
-}  
-  
-function filterPhones(){  
-const search=document.getElementById("search").value.toLowerCase();  
-displayPhones(phones.filter(p=>p.name.toLowerCase().includes(search)));  
-}  
-  
-displayPhones(phones);  
-</script>  </body>  
-</html>  
+<h2 class="section">Notre catalogue de téléphones</h2>
+
+<div class="grid" id="catalogue"></div>
+
+<div class="contact">
+<h2>Commander chez RIVATO</h2>
+<p>Contactez-nous directement sur WhatsApp.</p>
+<p>WhatsApp / Wave : +225 05 65 87 58 33</p>
+<a class="btn" href="https://wa.me/2250565875833">
+Commander sur WhatsApp
+</a>
+<p>WhatsApp / Orange Money : +225 07 00 66 43 46</p>
+<a class="btn" href="https://wa.me/2250700664346">
+Contacter le deuxième numéro
+</a>
+</div>
+
+</div>
+
+<footer>
+© 2026 RIVATO MOBILE STORE - Tous droits réservés.
+</footer>
+
+<script>
+const phones = [
+{name:"Honor 8 Lite",price:30000,state:"Bon état"},
+{name:"Honor 8X",price:40000,state:"Bon état"},
+{name:"Infinix Smart 6",price:35000,state:"Bon état"},
+
+{name:"Redmi A7",price:null},
+{name:"Redmi A7 Pro",price:null},
+{name:"Redmi 9A",price:null},
+{name:"Redmi 15",price:null},
+{name:"Redmi 15C",price:null},
+{name:"Redmi 17",price:null},
+{name:"Redmi Note 17 5G",price:null},
+
+{name:"Samsung Galaxy A06",price:50000,state:"Excellent état"},
+{name:"Samsung Galaxy A07",price:null},
+{name:"Samsung Galaxy A07s",price:null},
+{name:"Samsung Galaxy A14",price:null},
+{name:"Samsung Galaxy A16",price:null},
+{name:"Samsung Galaxy A17",price:null},
+{name:"Samsung Galaxy A37",price:null},
+{name:"Samsung Galaxy A56",price:null},
+
+{name:"Tecno Pop 20",price:null}
+];
+
+phones.sort((a,b)=>a.name.localeCompare(b.name,"fr"));
+
+function displayPhones(list){
+const catalogue=document.getElementById("catalogue");
+catalogue.innerHTML="";
+
+if(list.length===0){
+catalogue.innerHTML="<p>Aucun téléphone trouvé.</p>";
+return;
+}
+
+list.forEach(phone=>{
+const price=phone.price===null
+?"Nous consulter"
+:phone.price.toLocaleString("fr-FR")+" F CFA";
+
+const message=encodeURIComponent(
+"Bonjour RIVATO MOBILE STORE, je souhaite commander : "+phone.name
+);
+
+catalogue.innerHTML+=`
+<div class="card">
+<h3>${phone.name}</h3>
+<p class="info">État : ${phone.state||"Nous consulter"}</p>
+<p class="price">${price}</p>
+<p class="info">Stockage et RAM : Nous consulter</p>
+<span class="status">Disponible sur demande</span>
+<a class="btn" href="https://wa.me/2250565875833?text=${message}">
+Commander
+</a>
+</div>`;
+});
+}
+
+function filterPhones(){
+const search=document.getElementById("search").value.toLowerCase();
+displayPhones(phones.filter(p=>p.name.toLowerCase().includes(search)));
+}
+
+displayPhones(phones);
+</script>
+
+</body>
+</html>
